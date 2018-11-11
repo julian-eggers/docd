@@ -33,7 +33,7 @@ public class DockerITServiceRepository implements ServiceRepository
     @Override
     public void updateLabels(Service service)
     {
-
+    	// no persistence
     }
 
     @Override
