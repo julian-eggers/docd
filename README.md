@@ -2,7 +2,7 @@ docd
 ====
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/61cc56dec92b41e39ca8afbb6df93bea)](https://www.codacy.com/app/eggers-julian/docd)
-[![Coverage Status](https://coveralls.io/repos/julian-eggers/dockerhub-webhook-forwarder/badge.svg?branch=master&service=github)](https://coveralls.io/github/julian-eggers/dockerhub-webhook-forwarder?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/61cc56dec92b41e39ca8afbb6df93bea)](https://www.codacy.com/app/eggers-julian/docd)
 [![Build Status](https://travis-ci.com/julian-eggers/docd.svg?branch=master)](https://travis-ci.com/julian-eggers/docd)
 
 Automatic redeploy for docker swarm services

@@ -258,12 +258,56 @@
             <goals>
               <goal>report</goal>
             </goals>
+            <configuration>
+              <dataFile>target/jacoco-ut.exec</dataFile>
+              <outputDirectory>target/jacoco-ut</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>integration-test-report</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <dataFile>target/jacoco-it.exec</dataFile>
+              <outputDirectory>target/jacoco-it</outputDirectory>
+            </configuration>
           </execution>
           <execution>
             <id>agent</id>
             <goals>
               <goal>prepare-agent</goal>
             </goals>
+          </execution>
+          <execution>
+            <id>merge-results</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>merge</goal>
+            </goals>
+            <configuration>
+              <fileSets>
+                <fileSet>
+                  <directory>target</directory>
+                  <includes>
+                    <include>*.exec</include>
+                  </includes>
+                </fileSet>
+              </fileSets>
+              <destFile>target/jacoco.exec</destFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>post-merge-report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <dataFile>target/jacoco.exec</dataFile>
+              <outputDirectory>target/site/jacoco</outputDirectory>
+            </configuration>
           </execution>
         </executions>
       </plugin>
