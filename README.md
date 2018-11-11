@@ -1,7 +1,7 @@
 docd
 ====
 
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/dc1758219a934b4bab3b662f32354101)](https://www.codacy.com/app/eggers-julian/dockerhub-webhook-forwarder)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/61cc56dec92b41e39ca8afbb6df93bea)](https://www.codacy.com/app/eggers-julian/docd)
 [![Coverage Status](https://coveralls.io/repos/julian-eggers/dockerhub-webhook-forwarder/badge.svg?branch=master&service=github)](https://coveralls.io/github/julian-eggers/dockerhub-webhook-forwarder?branch=master)
 [![Build Status](https://travis-ci.com/julian-eggers/docd.svg?branch=master)](https://travis-ci.com/julian-eggers/docd)
 
