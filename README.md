@@ -78,7 +78,7 @@ jeggers/docd:latest \
 docker service create \
 --name=dummy-service \
 --label DAD_SELECTION_BLOCKED=true \
-dummy/service:latestt
+dummy/service:latest
 ```
 
 In whitelist-mode you have to explicitly enable every service.
