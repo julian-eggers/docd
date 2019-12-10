@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import java.io.IOException;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.TestPropertySource;
@@ -22,17 +20,17 @@ public class WebHookRestControllerWithSelectionModeIndependentMethodsIT extends 
     private WebHookRestController controller;
 
     @Test
-    public void testProcessWebHookEventWithNotFound() throws IOException
+    public void testProcessWebHookEventWithNotFound()
     {
         // Action
-        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getWebHookEventAsJson());
+        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getDockerHubWebHookEventAsJson());
 
         // Result check
         assertThat(webHookEvent).isEqualToComparingFieldByFieldRecursively(getBaseWebHookEvent());
     }
 
     @Test
-    public void testProcessWebHookEventWithImageHash() throws IOException
+    public void testProcessWebHookEventWithImageHash()
     {
         // Preconditions
         Service service = getBaseService();
@@ -40,7 +38,7 @@ public class WebHookRestControllerWithSelectionModeIndependentMethodsIT extends 
         repository.add(service);
 
         // Action
-        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getWebHookEventAsJson());
+        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getDockerHubWebHookEventAsJson());
 
         // Result check
         assertThat(webHookEvent).isEqualToComparingFieldByFieldRecursively(getBaseWebHookEvent());
@@ -51,7 +49,7 @@ public class WebHookRestControllerWithSelectionModeIndependentMethodsIT extends 
     }
 
     @Test
-    public void testProcessWebHookEventWithWrongTag() throws IOException
+    public void testProcessWebHookEventWithWrongTag()
     {
         // Preconditions
         Service service = getBaseService();
@@ -59,7 +57,7 @@ public class WebHookRestControllerWithSelectionModeIndependentMethodsIT extends 
         repository.add(service);
 
         // Action
-        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getWebHookEventAsJson());
+        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getDockerHubWebHookEventAsJson());
 
         // Result check
         assertThat(webHookEvent).isEqualToComparingFieldByFieldRecursively(getBaseWebHookEvent());
@@ -70,7 +68,7 @@ public class WebHookRestControllerWithSelectionModeIndependentMethodsIT extends 
     }
 
     @Test
-    public void testProcessWebHookEventWithMultipleWrongTags() throws IOException
+    public void testProcessWebHookEventWithMultipleWrongTags()
     {
         // Preconditions
         Service service1 = getBaseService("cawandu10");
@@ -82,7 +80,7 @@ public class WebHookRestControllerWithSelectionModeIndependentMethodsIT extends 
         repository.add(service2);
 
         // Action
-        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getWebHookEventAsJson());
+        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getDockerHubWebHookEventAsJson());
 
         // Result check
         assertThat(webHookEvent).isEqualToComparingFieldByFieldRecursively(getBaseWebHookEvent());

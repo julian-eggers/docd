@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.itelg.docker.docd.domain.WebHookEvent;
 import com.itelg.docker.docd.parser.DockerhubWebhookEventParser;
+import com.itelg.docker.docd.parser.GithubWebhookEventParser;
 import com.itelg.docker.docd.service.WebHookEventService;
 
 @RestController
@@ -15,7 +16,11 @@ public class WebHookRestController
 {
     @Lazy
     @Autowired
-    private DockerhubWebhookEventParser webHookEventParser;
+    private DockerhubWebhookEventParser dockerhubWebHookEventParser;
+
+    @Lazy
+    @Autowired
+    private GithubWebhookEventParser githubWebhookEventParser;
 
     @Lazy
     @Autowired
@@ -24,7 +29,15 @@ public class WebHookRestController
     @PostMapping("webhook/dockerhub")
     public WebHookEvent processDockerhubWebHookEvent(@RequestBody String json)
     {
-        WebHookEvent event = webHookEventParser.parse(json);
+        var event = dockerhubWebHookEventParser.parse(json);
+        updateService.processWebHookEvent(event);
+        return event;
+    }
+
+    @PostMapping("webhook/github")
+    public WebHookEvent processGithubWebHookEvent(@RequestBody String json)
+    {
+        var event = dockerhubWebHookEventParser.parse(json);
         updateService.processWebHookEvent(event);
         return event;
     }

@@ -107,9 +107,7 @@ public class DefaultServiceService implements ServiceService
         {
             return service.hasLabel(WHITELIST_ALLOWED_LABEL);
         }
-        else
-        {
-            return !service.hasLabel(BLACKLIST_BLOCKED_LABEL);
-        }
+
+        return !service.hasLabel(BLACKLIST_BLOCKED_LABEL);
     }
 }

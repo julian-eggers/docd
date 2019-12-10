@@ -4,6 +4,6 @@ public class RabbitMqWebHookEventListener extends AbstractWebHookEventListener
 {
     public void onMessage(byte[] json)
     {
-        onMessage(webHookEventParser.parse(new String(json)));
+        handleMessage(new String(json));
     }
 }

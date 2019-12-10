@@ -5,12 +5,10 @@ import org.springframework.stereotype.Component;
 
 import com.itelg.docker.docd.domain.WebHookEvent;
 
-import lombok.SneakyThrows;
-
 @Component
-public class DockerhubWebhookEventParser
+public class DockerhubWebhookEventParser implements WebHookEventParser
 {
-    @SneakyThrows
+    @Override
     public WebHookEvent parse(String json)
     {
         JSONObject object = new JSONObject(json);

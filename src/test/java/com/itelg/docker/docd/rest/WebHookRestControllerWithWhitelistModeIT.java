@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import java.io.IOException;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.TestPropertySource;
@@ -22,13 +20,13 @@ public class WebHookRestControllerWithWhitelistModeIT extends AbstractIT
     private WebHookRestController controller;
 
     @Test
-    public void testProcessWebHookEventWithNotAllowed() throws IOException
+    public void testProcessWebHookEventWithNotAllowed()
     {
         // Preconditions
         repository.add(getBaseService());
 
         // Action
-        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getWebHookEventAsJson());
+        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getDockerHubWebHookEventAsJson());
 
         // Result check
         assertThat(webHookEvent).isEqualToComparingFieldByFieldRecursively(getBaseWebHookEvent());
@@ -39,13 +37,13 @@ public class WebHookRestControllerWithWhitelistModeIT extends AbstractIT
     }
 
     @Test
-    public void testProcessWebHookEvent() throws IOException
+    public void testProcessWebHookEvent()
     {
         // Preconditions
         repository.add(getBaseService().whitelisted());
 
         // Action
-        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getWebHookEventAsJson());
+        WebHookEvent webHookEvent = controller.processDockerhubWebHookEvent(getDockerHubWebHookEventAsJson());
 
         // Result check
         assertThat(webHookEvent).isEqualToComparingFieldByFieldRecursively(getBaseWebHookEvent());

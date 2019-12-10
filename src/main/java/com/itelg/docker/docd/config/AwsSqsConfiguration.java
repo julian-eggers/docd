@@ -59,7 +59,7 @@ public class AwsSqsConfiguration
         {
             return Regions.valueOf(region);
         }
-        catch (Exception e)
+        catch (@SuppressWarnings("unused") Exception e)
         {
             return Regions.fromName(region);
         }
