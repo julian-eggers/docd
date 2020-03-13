@@ -61,4 +61,13 @@ public interface DomainTestSupport
             return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
         }
     }
+
+    @SneakyThrows
+    default String getGithubWebHookEventAsJson()
+    {
+        try (InputStream inputStream = new ClassPathResource("webhookevent_github.json").getInputStream())
+        {
+            return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        }
+    }
 }

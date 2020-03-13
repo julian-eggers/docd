@@ -31,13 +31,13 @@ public abstract class AbstractWebHookEventListener
             }
             catch (@SuppressWarnings("unused") Exception e)
             {
-                log.debug("Failed to parse with json with {} - {}", webHookEventParser.getClass().getSimpleName(), json);
+                log.debug("Failed to parse json with {} - {}", webHookEventParser.getClass().getSimpleName(), json);
             }
         }
 
         if (webHookEvent == null)
         {
-            log.warn("Failed to parse with json - {}", json);
+            log.warn("Failed to parse json - {}", json);
         }
 
         updateService.processWebHookEvent(webHookEvent);

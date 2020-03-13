@@ -37,7 +37,7 @@ public class WebHookRestController
     @PostMapping("webhook/github")
     public WebHookEvent processGithubWebHookEvent(@RequestBody String json)
     {
-        var event = dockerhubWebHookEventParser.parse(json);
+        var event = githubWebhookEventParser.parse(json);
         updateService.processWebHookEvent(event);
         return event;
     }
