@@ -15,8 +15,8 @@
     <java.version>11</java.version>
     <!-- Testing -->
     <jacoco.version>0.8.3</jacoco.version>
-    <powermock.version>2.0.4</powermock.version>
-    <easymock.version>4.1</easymock.version>
+    <powermock.version>2.0.5</powermock.version>
+    <easymock.version>4.2</easymock.version>
     <!-- Other -->
     <jaxb.version>2.3.0</jaxb.version>
     <!-- Build -->
@@ -70,14 +70,14 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-aws-messaging</artifactId>
-      <version>2.0.1.RELEASE</version>
+      <version>2.2.1.RELEASE</version>
     </dependency>
 
     <!-- Docker -->
     <dependency>
       <groupId>com.github.docker-java</groupId>
       <artifactId>docker-java</artifactId>
-      <version>3.1.0-rc-8</version>
+      <version>3.2.0</version>
     </dependency>
     <dependency>
       <groupId>com.sun.activation</groupId>
@@ -109,7 +109,7 @@
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
-      <version>20180813</version>
+      <version>20190722</version>
     </dependency>
 
     <!-- Testing -->
