@@ -23,7 +23,7 @@ public abstract class AbstractRestIT extends AbstractIT
     protected Service redeploy(String service)
     {
         ResponseEntity<Service> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/service/" + service + "/redeploy", Service.class);
-        assertEquals(MediaType.APPLICATION_JSON_UTF8, responseEntity.getHeaders().getContentType());
+        assertEquals(MediaType.APPLICATION_JSON, responseEntity.getHeaders().getContentType());
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         return responseEntity.getBody();
     }
@@ -37,7 +37,7 @@ public abstract class AbstractRestIT extends AbstractIT
     protected Service allow(String service)
     {
         ResponseEntity<Service> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/service/" + service + "/allow", Service.class);
-        assertEquals(MediaType.APPLICATION_JSON_UTF8, responseEntity.getHeaders().getContentType());
+        assertEquals(MediaType.APPLICATION_JSON, responseEntity.getHeaders().getContentType());
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         return responseEntity.getBody();
     }
@@ -51,7 +51,7 @@ public abstract class AbstractRestIT extends AbstractIT
     protected Service block(String service)
     {
         ResponseEntity<Service> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/service/" + service + "/block", Service.class);
-        assertEquals(MediaType.APPLICATION_JSON_UTF8, responseEntity.getHeaders().getContentType());
+        assertEquals(MediaType.APPLICATION_JSON, responseEntity.getHeaders().getContentType());
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         return responseEntity.getBody();
     }
@@ -70,7 +70,7 @@ public abstract class AbstractRestIT extends AbstractIT
     protected Service get(String service)
     {
         ResponseEntity<Service> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "service/" + service, Service.class);
-        assertEquals(MediaType.APPLICATION_JSON_UTF8, responseEntity.getHeaders().getContentType());
+        assertEquals(MediaType.APPLICATION_JSON, responseEntity.getHeaders().getContentType());
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         return responseEntity.getBody();
     }

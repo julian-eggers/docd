@@ -7,6 +7,6 @@ public class AwsSqsWebHookEventListener extends AbstractWebHookEventListener
     @SqsListener(value = "${webhookevent.queue.awssqs.queue-name}")
     public void onMessage(String json)
     {
-        onMessage(webHookEventParser.parse(json));
+        handleMessage(json);
     }
 }

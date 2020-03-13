@@ -1,0 +1,37 @@
+name: release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    env:
+      GPR_USERNAME: x-access-token
+      GPR_TOKEN: ${{ secrets.GPR_TOKEN }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: setup-java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+          server-id: github
+          server-username: GPR_USERNAME
+          server-password: GPR_TOKEN
+
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: caching
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+      - name: deploy
+        run: |
+          docker login ${{ secrets.DOCKER_REGISTRY }} -u ${{ secrets.DOCKER_REGISTRY_USER }} -p ${{ secrets.DOCKER_REGISTRY_TOKEN }}
+          mvn clean verify github-release:release write-text-files:write-text-files dockerfile:build dockerfile:tag@tag-latest dockerfile:tag@tag-version dockerfile:push@push-latest dockerfile:push@push-version
