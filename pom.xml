@@ -5,7 +5,7 @@
   <name>docd</name>
   <description>Automatic redeploy for docker swarm services</description>
   <url>https://github.com/julian-eggers/docd</url>
-  <version>0.7.0-RC2</version>
+  <version>0.7.0-RC3</version>
 
   <properties>
     <!-- System -->
@@ -421,6 +421,20 @@
         <groupId>de.jutzig</groupId>
         <artifactId>github-release-plugin</artifactId>
         <version>${github-release-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>github-upload</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>release</goal>
+            </goals>
+            <configuration>
+              <releaseName>${project.version}</releaseName>
+              <tag>${project.version}</tag>
+              <artifact>${project.build.directory}/${project.artifactId}-${project.version}.jar</artifact>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

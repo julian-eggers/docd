@@ -1,9 +1,7 @@
-docd
-====
+# docd
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/61cc56dec92b41e39ca8afbb6df93bea)](https://www.codacy.com/app/eggers-julian/docd)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/61cc56dec92b41e39ca8afbb6df93bea)](https://www.codacy.com/app/eggers-julian/docd)
-[![Build Status](https://travis-ci.com/julian-eggers/docd.svg?branch=master)](https://travis-ci.com/julian-eggers/docd)
+[![Build](https://github.com/julian-eggers/docd/workflows/release/badge.svg)](https://github.com/julian-eggers/docd/actions)
+[![Nightly build](https://github.com/julian-eggers/docd/workflows/nightly/badge.svg)](https://github.com/julian-eggers/docd/actions)
 
 Automatic redeploy for docker swarm services
 
