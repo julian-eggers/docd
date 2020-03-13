@@ -5,7 +5,7 @@
   <name>docd</name>
   <description>Automatic redeploy for docker swarm services</description>
   <url>https://github.com/julian-eggers/docd</url>
-  <version>0.7.0-RC3</version>
+  <version>0.7.0</version>
 
   <properties>
     <!-- System -->
